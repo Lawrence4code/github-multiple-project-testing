@@ -1,0 +1,207 @@
+/* ------------------------- Mixins --------------------- */
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==tab-port {
+    @media (min-width: 37.5em) {
+      @content;
+    } // 600px/16px   = 37.5em
+  }
+  @if $breakpoint==tab-land {
+    @media (min-width: 56.25em) {
+      @content;
+    } // 900px/16px   = 56.25em
+  }
+  @if $breakpoint==desktop {
+    @media (min-width: 75em) {
+      @content;
+    } // 1200/16px    = 75em
+  }
+  @if $breakpoint==wide-screen {
+    @media (min-width: 112.5em) {
+      @content;
+    } // 1800px/16px  = 112.5em
+  }
+}
+
+/* -------------------- GENERAL SETTING ---------------- */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  @include respond(tab-port) {
+    font-size: 68.75%; // 1rem = 11px  // 11px/16px  = 68.75%
+  }
+  @include respond(tab-land) {
+    font-size: 75%; // 1rem = 12px  // 12px/16px  = 75.00%
+  }
+  @include respond(desktop) {
+    font-size: 81.25%; // 1rem = 13px  // 13px/16px  = 81.25%
+  }
+  @include respond(wide-screen) {
+    font-size: 87.75%; // 1rem = 14px  // 14px/16px  = 87.75%
+  }
+  font-size: 62.5%; // 1rem = 10px // 10px/16px = 62.5%
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+/* ----------------------- PAGE STYLE  ------------------ */
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.875)), url(/images/bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.container {
+  width: 90%;
+  height: 10%;
+  margin: 0 auto;
+  position: absolute;
+  top: 62.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  &__hustle {
+    width: 70%;
+    & svg {
+      width: 70%;
+      padding: 3rem 0 0 0;
+      path {
+        stroke-dasharray: 850;
+        animation-name: animateHustle;
+        animation-duration: 6s;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+        animation-delay: 1s;
+        animation-iteration-count: 1;
+      }
+    }
+  }
+  &__on {
+    width: 30%;
+    & svg {
+      padding: 12.5rem 0 0 20rem;
+      path {
+        animation: animateOn 3s cubic-bezier(0, 0.23, 1, 0.1);
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+        animation-delay: 5.5s;
+        stroke-dasharray: 750;
+        animation-iteration-count: 1;
+      }
+    }
+  }
+  &__line {
+    width: 100%;
+    & svg {
+      width: 100%;
+      padding-top: 0.25rem;
+      path {
+        opacity: 0;
+        stroke-dasharray: 1200;
+        animation-name: animateLine;
+        animation-duration: 3s;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0, 0.23, 1, 0.1);
+        animation-delay: 3.25s;
+      }
+    }
+  }
+}
+
+path {
+  opacity: 0;
+  stroke: #3498db;
+  stroke-width: 4;
+  stroke-miterlimit: 4;
+}
+
+@keyframes animateHustle {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dasharray: 0 850;
+    stroke-dashoffset: 495;
+  }
+  30% {
+    opacity: 10;
+    fill: none; // stroke-dasharray: 255 595;
+    stroke-dashoffset: 495;
+  }
+  95% {
+    fill: rgba(52, 152, 219, 0); // stroke-dasharray: 807 43;
+    stroke-dashoffset: 495;
+  }
+  100% {
+    opacity: 10;
+    fill: rgba(52, 152, 219, 1);
+    stroke-dasharray: 850 0;
+    stroke-dashoffset: 495;
+  }
+}
+
+@keyframes animateOn {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dasharray: 0 750;
+    stroke-dashoffset: 250;
+  }
+  30% {
+    opacity: 10;
+    fill: none;
+    stroke-dashoffset: 250;
+  }
+  95% {
+    fill: rgba(52, 152, 219, 0);
+  }
+  100% {
+    opacity: 10;
+    fill: rgba(52, 152, 219, 1);
+    stroke-dasharray: 750 0;
+    stroke-dashoffset: 250;
+  }
+}
+
+@keyframes animateLine {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dashoffset: 1200;
+  }
+  30% {
+    opacity: 10;
+    fill: none;
+    stroke-dashoffset: 1200;
+  }
+  95% {
+    fill: rgba(52, 152, 219, 0);
+  }
+  100% {
+    opacity: 10;
+    fill: rgba(52, 152, 219, 1);
+    stroke-dashoffset: 0;
+  }
+}

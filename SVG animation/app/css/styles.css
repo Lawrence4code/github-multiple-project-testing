@@ -1,0 +1,228 @@
+/* ------------------------- Mixins --------------------- */
+/* -------------------- GENERAL SETTING ---------------- */
+* {
+  padding: 0;
+  margin: 0; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%; }
+  @media (min-width: 37.5em) {
+    html {
+      font-size: 68.75%; } }
+  @media (min-width: 56.25em) {
+    html {
+      font-size: 75%; } }
+  @media (min-width: 75em) {
+    html {
+      font-size: 81.25%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 87.75%; } }
+
+body {
+  padding: 0;
+  margin: 0;
+  color: #fff; }
+
+/* ----------------------- PAGE STYLE  ------------------ */
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.875))), url(/images/bg.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.875)), url(/images/bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative; }
+
+.container {
+  width: 90%;
+  height: 10%;
+  margin: 0 auto;
+  position: absolute;
+  top: 62.5%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .container__hustle {
+    width: 70%; }
+    .container__hustle svg {
+      width: 70%;
+      padding: 3rem 0 0 0; }
+      .container__hustle svg path {
+        stroke-dasharray: 850;
+        -webkit-animation-name: animateHustle;
+                animation-name: animateHustle;
+        -webkit-animation-duration: 6s;
+                animation-duration: 6s;
+        -webkit-animation-direction: normal;
+                animation-direction: normal;
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+        -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+                animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+        -webkit-animation-delay: 1s;
+                animation-delay: 1s;
+        -webkit-animation-iteration-count: 1;
+                animation-iteration-count: 1; }
+  .container__on {
+    width: 30%; }
+    .container__on svg {
+      padding: 12.5rem 0 0 20rem; }
+      .container__on svg path {
+        -webkit-animation: animateOn 3s cubic-bezier(0, 0.23, 1, 0.1);
+                animation: animateOn 3s cubic-bezier(0, 0.23, 1, 0.1);
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+        -webkit-animation-direction: normal;
+                animation-direction: normal;
+        -webkit-animation-delay: 5.5s;
+                animation-delay: 5.5s;
+        stroke-dasharray: 750;
+        -webkit-animation-iteration-count: 1;
+                animation-iteration-count: 1; }
+  .container__line {
+    width: 100%; }
+    .container__line svg {
+      width: 100%;
+      padding-top: 0.25rem; }
+      .container__line svg path {
+        opacity: 0;
+        stroke-dasharray: 1200;
+        -webkit-animation-name: animateLine;
+                animation-name: animateLine;
+        -webkit-animation-duration: 3s;
+                animation-duration: 3s;
+        -webkit-animation-direction: normal;
+                animation-direction: normal;
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+        -webkit-animation-timing-function: cubic-bezier(0, 0.23, 1, 0.1);
+                animation-timing-function: cubic-bezier(0, 0.23, 1, 0.1);
+        -webkit-animation-delay: 3.25s;
+                animation-delay: 3.25s; }
+
+path {
+  opacity: 0;
+  stroke: #3498db;
+  stroke-width: 4;
+  stroke-miterlimit: 4; }
+
+@-webkit-keyframes animateHustle {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dasharray: 0 850;
+    stroke-dashoffset: 495; }
+  30% {
+    opacity: 10;
+    fill: none;
+    stroke-dashoffset: 495; }
+  95% {
+    fill: rgba(52, 152, 219, 0);
+    stroke-dashoffset: 495; }
+  100% {
+    opacity: 10;
+    fill: #3498db;
+    stroke-dasharray: 850 0;
+    stroke-dashoffset: 495; } }
+
+@keyframes animateHustle {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dasharray: 0 850;
+    stroke-dashoffset: 495; }
+  30% {
+    opacity: 10;
+    fill: none;
+    stroke-dashoffset: 495; }
+  95% {
+    fill: rgba(52, 152, 219, 0);
+    stroke-dashoffset: 495; }
+  100% {
+    opacity: 10;
+    fill: #3498db;
+    stroke-dasharray: 850 0;
+    stroke-dashoffset: 495; } }
+
+@-webkit-keyframes animateOn {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dasharray: 0 750;
+    stroke-dashoffset: 250; }
+  30% {
+    opacity: 10;
+    fill: none;
+    stroke-dashoffset: 250; }
+  95% {
+    fill: rgba(52, 152, 219, 0); }
+  100% {
+    opacity: 10;
+    fill: #3498db;
+    stroke-dasharray: 750 0;
+    stroke-dashoffset: 250; } }
+
+@keyframes animateOn {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dasharray: 0 750;
+    stroke-dashoffset: 250; }
+  30% {
+    opacity: 10;
+    fill: none;
+    stroke-dashoffset: 250; }
+  95% {
+    fill: rgba(52, 152, 219, 0); }
+  100% {
+    opacity: 10;
+    fill: #3498db;
+    stroke-dasharray: 750 0;
+    stroke-dashoffset: 250; } }
+
+@-webkit-keyframes animateLine {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dashoffset: 1200; }
+  30% {
+    opacity: 10;
+    fill: none;
+    stroke-dashoffset: 1200; }
+  95% {
+    fill: rgba(52, 152, 219, 0); }
+  100% {
+    opacity: 10;
+    fill: #3498db;
+    stroke-dashoffset: 0; } }
+
+@keyframes animateLine {
+  0% {
+    opacity: 0;
+    fill: none;
+    stroke-dashoffset: 1200; }
+  30% {
+    opacity: 10;
+    fill: none;
+    stroke-dashoffset: 1200; }
+  95% {
+    fill: rgba(52, 152, 219, 0); }
+  100% {
+    opacity: 10;
+    fill: #3498db;
+    stroke-dashoffset: 0; } }

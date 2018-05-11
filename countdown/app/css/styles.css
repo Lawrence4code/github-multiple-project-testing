@@ -1,0 +1,144 @@
+/* -------------------------------------------------------------------------- */
+/* -------------------------------- Mixins ---------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* ------------------------------- Variables -------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* ---------------------------- GENERAL SETTINGS ---------------------------- */
+/* -------------------------------------------------------------------------- */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+  @media (min-width: 37.5em) {
+    html {
+      font-size: 68.75%; } }
+  @media (min-width: 56.25em) {
+    html {
+      font-size: 75%; } }
+  @media (min-width: 75em) {
+    html {
+      font-size: 81.25%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 87.75%; } }
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------------ Landing Page ------------------------------ *
+/* -------------------------------------------------------------------------- */
+.landing {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.85))), url("/images/pbg2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85)), url("/images/pbg2.jpg"); }
+  .landing__logo {
+    font-family: 'Lobster', cursive;
+    font-size: 21rem;
+    color: #2980b9;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    letter-spacing: 1.2rem;
+    padding: 1.5rem 0 1rem 0; }
+    @media (min-width: 37.5em) {
+      .landing__logo {
+        font-size: 24rem;
+        padding: 4rem 0 0 0;
+        padding: 3.5rem 0 2rem 0; } }
+    @media (min-width: 56.25em) {
+      .landing__logo {
+        font-size: 24rem;
+        padding: 4rem 0 0 0;
+        padding: 3.5rem 0 2rem 0; } }
+    @media (min-width: 75em) {
+      .landing__logo {
+        font-size: 22rem; } }
+    @media (min-width: 112.5em) {
+      .landing__logo {
+        font-size: 22rem; } }
+  .landing__sub-title {
+    font-family: inherit;
+    font-size: 2rem;
+    display: block;
+    color: #979191;
+    width: 100%; }
+  .landing__text--comingsoon {
+    font-size: 2.5rem;
+    font-family: inherit;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    letter-spacing: .1rem; }
+    @media (min-width: 56.25em) {
+      .landing__text--comingsoon {
+        margin-bottom: 2rem; } }
+  .landing__text--countdown {
+    font-family: inherit;
+    padding-top: 1rem;
+    font-size: 3.25rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 auto; }
+    @media (min-width: 56.25em) {
+      .landing__text--countdown {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        width: 80%; } }
+    .landing__text--countdown div {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: .5rem;
+      margin: .5rem;
+      width: 30rem;
+      margin: 0 auto;
+      border-radius: 1%; }
+      @media (min-width: 56.25em) {
+        .landing__text--countdown div {
+          width: 60%;
+          margin: 0 .5rem;
+          -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.8);
+                  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.8);
+          border-radius: 3%; } }
+      @media (min-width: 75em) {
+        .landing__text--countdown div {
+          width: 20%; } }
+      .landing__text--countdown div:first-child {
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(134, 194, 50, 0.2)));
+        background-image: linear-gradient(rgba(134, 194, 50, 0.2));
+        color: #cf191d;
+        margin-top: 0; }
+      .landing__text--countdown div:not(:first-child) {
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(97, 137, 47, 0.03)));
+        background-image: linear-gradient(rgba(97, 137, 47, 0.03)); }
+      .landing__text--countdown div:not(:last-child) {
+        margin-bottom: .75rem; }
+        @media (min-width: 56.25em) {
+          .landing__text--countdown div:not(:last-child) {
+            margin-bottom: 0; } }
+    .landing__text--countdown div span {
+      letter-spacing: .1rem;
+      display: block; }

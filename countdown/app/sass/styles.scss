@@ -1,0 +1,205 @@
+/* -------------------------------------------------------------------------- */
+/* -------------------------------- Mixins ---------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+// 0px     - 599px   - Phone                  - white
+// 600px   - 899px   - Tablet Portrait        - yellow
+// 900px   - 1199px  - Tablet Landscape       - orange
+// 1200px  - 1799px  - Desktop                - red
+// 1800px+           - Wide Screen            - Black
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == tab-port {
+    @media ( min-width: 37.50em) {
+      @content
+    }; // 600px/16px   = 37.5em
+  }
+  @if $breakpoint == tab-land {
+    @media ( min-width: 56.25em) {
+      @content
+    }; // 900px/16px   = 56.25em
+  }
+  @if $breakpoint == desktop {
+    @media ( min-width: 75em) {
+      @content
+    }; // 1200/16px    = 75em
+  }
+  @if $breakpoint == wide-screen {
+    @media ( min-width: 112.50em) {
+      @content
+    }; // 1800px/16px  = 112.5em
+  }
+};
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------------- Variables -------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+$color-orangered: orangered;
+// for colors, fonts and others.
+
+/* -------------------------------------------------------------------------- */
+/* ---------------------------- GENERAL SETTINGS ---------------------------- */
+/* -------------------------------------------------------------------------- */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+};
+
+html {
+
+  @include respond(tab-port) {
+    font-size: 68.75%; // 1rem = 11px  // 11px/16px  = 68.75%
+  };
+  @include respond(tab-land) {
+    font-size: 75%; // 1rem = 12px  // 12px/16px  = 75%
+  };
+  @include respond(desktop) {
+    font-size: 81.25%; // 1rem = 13px  // 13px/16px  = 81.25%
+  };
+  @include respond(wide-screen) {
+    font-size: 87.75%; // 1rem = 14px  // 14px/16px  = 87.75%
+  };
+
+  font-size: 62.5%; // 1rem = 10px // 10px/16px = 62.5%
+};
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  color: #ffffff; // background: #222629;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+};
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------------ Landing Page ------------------------------ *
+/* -------------------------------------------------------------------------- */
+
+.landing {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, .85)), url("/images/pbg2.jpg");
+
+  &__logo {
+    font-family: 'Lobster', cursive;
+    font-size: 21rem;
+    color: #2980b9;
+
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    letter-spacing: 1.2rem;
+    padding: 1.5rem 0 1rem 0;
+
+    @include respond(tab-port) {
+
+      font-size: 24rem;
+      padding: 4rem 0 0 0;
+      padding: 3.5rem 0 2rem 0;
+    }
+    @include respond(tab-land) {
+      font-size: 24rem;
+      padding: 4rem 0 0 0;
+      padding: 3.5rem 0 2rem 0;
+    }
+    @include respond(desktop) {
+      font-size: 22rem;
+    }
+    @include respond(wide-screen) {
+      font-size: 22rem;
+    }
+  };
+  
+  &__sub-title {
+    font-family: inherit;
+    font-size: 2rem;
+    display: block;
+    color: rgb(151, 145, 145);
+    width: 100%;
+  };
+
+  &__text--comingsoon {
+    font-size: 2.5rem;
+    font-family: inherit;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    letter-spacing: .1rem;
+    @include respond(tab-land) {
+      margin-bottom: 2rem;
+    };
+  };
+
+  &__text--countdown {
+    font-family: inherit;
+    padding-top: 1rem;
+    font-size: 3.25rem;
+    // display: flex;
+    // justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    @include respond(tab-land) {
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      
+    }
+
+    & div {
+      background-color: rgba(0, 0, 0, .5);
+      padding: .5rem;
+      margin: .5rem;
+      width: 30rem;
+      margin: 0 auto;
+      border-radius: 1%;
+
+      @include respond(tab-land) {
+        width: 60%;
+        margin: 0 .5rem;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, .8);
+        border-radius: 3%;
+      }
+      @include respond(desktop) {
+        width: 20%;
+
+      }
+      // @include respond(wide-screen) {
+      //   width: 10%;
+      // }
+      
+
+      &:first-child {
+        background-image: linear-gradient(rgba(134, 194, 50, .2));
+        color: rgb(207, 25, 29);
+        margin-top: 0;
+      }
+      &:not(:first-child) {
+        background-image: linear-gradient(rgba(97, 137, 47, .03));
+        // box-shadow: 0px 10px 10px rgba(0, 0, 0, .8);
+      }
+      &:not(:last-child) {
+        margin-bottom: .75rem;
+        @include respond(tab-land) {
+          margin-bottom: 0;
+        }
+      }
+    };
+
+    & div span {
+      letter-spacing: .1rem;
+      display: block;
+    }
+  };
+};
